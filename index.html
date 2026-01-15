@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- Viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- App Info -->
+  <title>AC: Wild World Checklist</title>
+  <meta name="theme-color" content="#7fb77e" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="top">
+    <img
+      src="header.webp"
+      alt="Animal Crossing: Wild World Checklist"
+      class="header-image"
+      loading="eager"
+      draggable="false"
+    />
+  </header>
+
+  <!-- STATS -->
+  <section class="stats" aria-label="Progress statistics">
+    <!-- OVERALL -->
+    <div class="stat-block">
+      <div class="stat-label">Overall</div>
+      <div class="stat-count" id="overall-count" aria-live="polite"></div>
+      <div class="progress">
+        <div class="progress-fill" id="overall-bar"></div>
+      </div>
+    </div>
+
+    <!-- CATEGORY -->
+    <div class="stat-block">
+      <div class="stat-label" id="category-label">Furniture</div>
+      <div class="stat-count" id="category-count" aria-live="polite"></div>
+      <div class="progress">
+        <div class="progress-fill" id="category-bar"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORY TABS -->
+  <nav class="tabs" aria-label="Categories">
+    <button class="tab active" data-category="furniture">Furniture</button>
+    <button class="tab" data-category="clothes">Clothes</button>
+    <button class="tab" data-category="accessories">Accessories</button>
+    <button class="tab" data-category="umbrellas">Umbrellas</button>
+    <button class="tab" data-category="carpets">Carpets</button>
+    <button class="tab" data-category="wallpapers">Wallpapers</button>
+    <button class="tab" data-category="gyroids">Gyroids</button>
+    <button class="tab" data-category="stationary">Stationary</button>
+    <button class="tab" data-category="songs">Songs</button>
+    <button class="tab" data-category="photos">Photos</button>
+    <button class="tab" data-category="museum">Museum</button>
+    <button class="tab" data-category="bugs">Bugs</button>
+    <button class="tab" data-category="fish">Fish</button>
+  </nav>
+
+  <!-- CONTROLS -->
+  <section class="controls">
+    <input
+      type="search"
+      id="search"
+      placeholder="Search…"
+      autocomplete="off"
+      spellcheck="false"
+    />
+
+    <div class="filters" role="group" aria-label="Filter items">
+      <button data-filter="all" class="active">All</button>
+      <button data-filter="obtained">Obtained</button>
+      <button data-filter="missing">Not Obtained</button>
+    </div>
+  </section>
+
+  <!-- GRID -->
+  <main id="grid" aria-live="polite"></main>
+
+  <!-- THEME TOGGLE -->
+  <button
+    class="theme-toggle"
+    id="themeToggle"
+    aria-label="Toggle dark mode"
+    title="Toggle theme"
+  >
+    🌙
+  </button>
+
+  <!-- WATERMARK -->
+  <footer class="watermark-container">
+    <a
+      class="watermark"
+      href="https://github.com/ravionry"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      mini-app developed by <span>@ravionry</span>
+    </a>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="script.js"></script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
+
+</body>
+</html>
